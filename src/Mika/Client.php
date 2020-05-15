@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Mika;
 
@@ -15,7 +15,7 @@ class Client
     private ?string $key;
     private Guzzle $http_client;
 
-    function __construct(LoggerInterface $logger, string $host = "http://localhost:34001/api", string $key = null)
+    function __construct(LoggerInterface $logger, string $host = "http://localhost:34001/", string $key = null)
     {
         $this->setLogger($logger);
         $this->key = $key;
@@ -41,7 +41,7 @@ class Client
     public function ping()
     {
         $this->log->debug("Pinging remote host");
-        $resp = $this->make_request("GET", "ping", ['ping' => "ping"]);
+        $resp = $this->make_request("POST", "ping", ['ping' => "ping"]);
         return $resp->getStatusCode() == 200;
     }
 
@@ -55,5 +55,6 @@ class Client
     public function setLogger(LoggerInterface $logger)
     {
         $this->log = $logger;
+        return null;
     }
 }
