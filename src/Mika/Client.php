@@ -53,7 +53,7 @@ class Client
     }
 
     /**
-     * @return ResponseInterface
+     * @return void
      * @throws BadResponse
      */
     public function ping()

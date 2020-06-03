@@ -25,6 +25,9 @@ final class ClientTest extends TestCase
             $this->fail($err->getMessage());
         }
     }
+    public function testTorrent() {
+
+    }
 
     public function testConfig()
     {
